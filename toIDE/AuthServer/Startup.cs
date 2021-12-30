@@ -40,21 +40,18 @@ namespace AuthServer
 
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
-                // this adds the operational data from DB (codes, tokens, consents)
                 .AddOperationalStore(options =>
                 {
                     options.ConfigureDbContext = builder => builder.UseSqlServer(Configuration.GetConnectionString("Default"));
-                    // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
-                    options.TokenCleanupInterval = 30; // interval in seconds
+                    options.TokenCleanupInterval = 30;
                 })
-                //.AddInMemoryPersistedGrants()
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddAspNetIdentity<AppUser>();
 
-                /* We'll play with this down the road... 
+                /* 
                     services.AddAuthentication()
                     .AddGoogle("Google", options =>
                     {
@@ -76,7 +73,6 @@ namespace AuthServer
             }).SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
