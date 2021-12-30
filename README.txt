@@ -1,7 +1,7 @@
 # IDServerAngular
 Как запустить:
 0) Устанавливаем node.js
-1) Качаем весь репозиторий, заходим cmd в toCMD\AuthServer.Infrastructure, создаём базу данных при, введя 2 команды 
+1) Качаем весь репозиторий, заходим cmd в toCMD\AuthServer.Infrastructure, создаём базу данных, введя 2 команды 
   dotnet ef database update --context AppIdentityDbContext
   dotnet ef database update --context PersistedGrantDbContext
   
