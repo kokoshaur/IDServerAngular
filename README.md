@@ -5,7 +5,7 @@
   dotnet ef database update --context AppIdentityDbContext
   dotnet ef database update --context PersistedGrantDbContext
   
-  Если будет жаловаться, что команда не найдена - устанавливает дотнет тулз  (dotnet tool install --global dotnet-ef)
+  Если будет жаловаться, что команда не найдена - устанавливает дотнет еф  (dotnet tool install --global dotnet-ef)
   
   2) Заходим cmd в папку toCMD\Spa\oauth-client
     Ставим CLI ангуляра командой npm install -g @angular/cli
